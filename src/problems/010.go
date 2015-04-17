@@ -3,10 +3,17 @@ package main
 import (
 	"fmt"
 
-	"utils/primes"
+	"utils"
 )
 
 func main() {
-	fmt.Println("here")
-	primes.GetPrimesList(10)
+	sum := 0
+	primes := utils.GetPrimesList(2000000)
+
+	for _, value := range primes {
+		sum += value
+	}
+
+	fmt.Println(sum)
+
 }

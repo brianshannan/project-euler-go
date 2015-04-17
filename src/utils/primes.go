@@ -1,4 +1,4 @@
-package primes
+package utils
 
 func GetPrimesList(max_num int) []int {
     nums := make([]bool, max_num)
@@ -27,7 +27,7 @@ func GetPrimesList(max_num int) []int {
     return primes[:count]
 }
 
-func is_prime(num int, primes []int) bool {
+func IsPrime(num int, primes []int) bool {
     for i := 0; i < len(primes) && primes[i] < num; i++ {
         if num%primes[i] == 0 {
             return false

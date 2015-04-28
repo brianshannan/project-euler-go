@@ -18,7 +18,7 @@ func fracs_equiv(n1 int, d1 int, n2 int, d2 int) bool {
 	return d2%r == 0 && d1 == d2/r
 }
 
-func is_curious(n int, d int) bool {
+func can_cancel_digits(n int, d int) bool {
 	n1 := n % 10
 	n2 := n / 10
 	d1 := d % 10
@@ -46,7 +46,7 @@ func main() {
 			continue
 		}
 		for j := i + 1; j <= 99; j++ {
-			if is_curious(i, j) {
+			if can_cancel_digits(i, j) {
 				num_prod *= i
 				den_prod *= j
 			}

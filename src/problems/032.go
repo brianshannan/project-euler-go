@@ -3,34 +3,13 @@ package main
 import (
 	"fmt"
 	"math"
+
+	"utils"
 )
-
-func pandigital_help(n int, arr []int, count *int) bool {
-	for n != 0 {
-		val := n % 10
-		if val == 0 || arr[val-1] > 0 {
-			return false
-		}
-		arr[val-1]++
-		*count++
-		n /= 10
-	}
-	return true
-}
-
-func is_pandigital(a int, b int, c int) bool {
-	arr := make([]int, 9)
-	count := 0
-
-	return pandigital_help(a, arr, &count) &&
-		pandigital_help(b, arr, &count) &&
-		pandigital_help(c, arr, &count) &&
-		count == 9
-}
 
 func has_pandigital_divisors(n int) bool {
 	for i := 2; i < int(math.Sqrt(float64(n)))+1; i++ {
-		if n%i == 0 && is_pandigital(i, n/i, n) {
+		if n%i == 0 && utils.IsPandigital(i, n/i, n) {
 			return true
 		}
 	}
